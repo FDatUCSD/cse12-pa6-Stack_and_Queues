@@ -1,8 +1,16 @@
+/*
+ * Name: Farris Danish
+ * PID: A17401247
+ * Email: fbinsyahrilakmar@ucsd.edu
+ * Sources used: Write-up
+ */
+
 /**
  * This class implements the Queue ADT using a MyDeque instance variable called
  * theStack.
  */
 public class MyQueue<E> implements QueueInterface<E> {
+
     MyDeque<E> theQueue;
 
     /**
@@ -12,6 +20,7 @@ public class MyQueue<E> implements QueueInterface<E> {
      * can hold.
      */
     public MyQueue(int initialCapacity) {
+        this.theQueue = new MyDeque<>(initialCapacity);
     }
 
     /**
@@ -21,6 +30,7 @@ public class MyQueue<E> implements QueueInterface<E> {
      */
     @Override
     public boolean empty() {
+        if (size() == 0) return true;
         return false;
     }
 
@@ -31,6 +41,7 @@ public class MyQueue<E> implements QueueInterface<E> {
      */
     @Override
     public void enqueue(E element) {
+        this.theQueue.addLast(element);
     }
 
     /**
@@ -42,7 +53,7 @@ public class MyQueue<E> implements QueueInterface<E> {
      */
     @Override
     public E dequeue() {
-        return null;
+        return this.theQueue.removeFirst();
     }
 
     /**
@@ -53,7 +64,7 @@ public class MyQueue<E> implements QueueInterface<E> {
      */
     @Override
     public E peek() {
-        return null;
+        return this.theQueue.peekFirst();
     }
 
     /**

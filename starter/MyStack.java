@@ -1,8 +1,16 @@
+/*
+ * Name: Farris Danish
+ * PID: A17401247
+ * Email: fbinsyahrilakmar@ucsd.edu
+ * Sources used: Write-up
+ */
+
 /**
  * This class implements the Stack ADT using a MyDeque instance variable called
  * theStack.
  */
 public class MyStack<E> implements StackInterface<E> {
+
     MyDeque<E> theStack;
 
     /**
@@ -12,6 +20,7 @@ public class MyStack<E> implements StackInterface<E> {
      * can hold.
      */
     public MyStack(int initialCapacity) {
+        this.theStack = new MyDeque<>(initialCapacity);
     }
 
     /**
@@ -21,6 +30,7 @@ public class MyStack<E> implements StackInterface<E> {
      */
     @Override
     public boolean empty() {
+        if (size() == 0) return true;
         return false;
     }
 
@@ -31,6 +41,7 @@ public class MyStack<E> implements StackInterface<E> {
      */
     @Override
     public void push(E element) {
+        this.theStack.addLast(element);
     }
 
     /**
@@ -41,7 +52,7 @@ public class MyStack<E> implements StackInterface<E> {
      */
     @Override
     public E pop() {
-        return null;
+        return this.theStack.removeLast();
     }
 
     /**
@@ -52,7 +63,7 @@ public class MyStack<E> implements StackInterface<E> {
      */
     @Override
     public E peek() {
-        return null;
+        return this.theStack.peekLast();
     }
 
     /**
@@ -64,5 +75,4 @@ public class MyStack<E> implements StackInterface<E> {
     public int size() {
         return theStack.size();
     }
-
 }
